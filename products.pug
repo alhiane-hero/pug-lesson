@@ -1,0 +1,31 @@
+//- get a copy from index template:
+extends index.pug
+//- replace content:
+block pageTitle
+    title My Products
+//- append content:
+append links
+    link(rel='stylesheet', link='css/append.css')
+//- prepend content:
+block prepend pageStructure 
+    div.prependContent
+        p This Is Prepend Content!
+//- replace content:
+block productTemplate
+    div.fromProduct
+        p This Text From Product Template
+        p This Block Content Is Updated
+//- switch - case:
+block append switchCase 
+    - var friends = 0
+    case friends
+        when 0
+            - break
+        when 1
+            p You Have A Friend!
+        when 2
+        when 3
+        when 4
+            p You Have Some Friends!
+        default
+            p You Have #{friends} Friends!

@@ -1,0 +1,13 @@
+.articles,
+.products-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.articles article,
+.products-box article {
+    flex: 0 0 30%;
+    padding: 15px;
+    background-color: #eee;
+    border: 1px solid #ccc;
+}

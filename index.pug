@@ -1,0 +1,118 @@
+include includes/variables
+include includes/mixins
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        <!--[if gt IE 8]><!-->
+        <!--<![endif]-->
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        block pageTitle
+            title My Resume
+        block links
+            include includes/styles
+    body 
+        block pageStructure
+            div.className
+            //- start my-skills 
+                '//- => hidden commnet';
+            div(class='main-container', id='main')
+                h2 My Skills
+                ul.skills-list 
+                    each skill, index in mySkills
+                        li=index + ':' + skill
+                    else
+                        div No Skills!
+                ul
+                    each item in list.length ? list : ['No Skills']
+                        li=item
+                ul
+                    - for(var i = 0; i < 10; i++)
+                        li Item#{i}
+                    - x = 10;
+                ul
+                    - while(x > 0)
+                        li=x--
+                p#main-p
+                    | I Love 
+                    b Pugjs 
+                    | For Ever
+                    strong strong word
+                    | Alhiane 
+                //- two of bibe lines
+                    |
+                    |  
+                    => new line:
+                |
+                |
+                //- dot block:
+                .
+                    This Is Div Child
+                    This Is Div Child
+                    This Is Div Child
+                    This Is Div Child
+                //- | => for add text no html element;
+            //- end my-skills '//- => 
+                hidden commnet';
+            form(action='#')
+                input(
+                    class = 'f-control',
+                    type = 'text',
+                    name = 'user',
+                    style = {
+                        padding: '8px 15px',
+                        border: '1px solid #ccc',
+                        'font-family': fontName
+                    }
+                )
+                button(style={
+                    'font-family': fontName,
+                    padding: '0.75rem 1.75rem',
+                    'background-color': '#080',
+                    color: '#fff',
+                    border: 'none',
+                    'border-radius': '2rem',
+                    cursor: 'pointer'
+                }) Send
+                button Reset
+                button clear
+            div.products
+                div(clas=className)
+                    h2(class=className + '-title') Product Title
+                    p(class=className + '-desc') Product Descripion
+                    a(href="#") Buy Me
+                    hr
+                div(clas=className)
+                    h2(class=className + '-title') Product Title
+                    p(class=className+ '-desc') Product Descripion
+                    a(href="#") Buy Me
+                    hr
+                div(clas=className)
+                    h2(class=className + '-title') Product Title
+                    p(class=className + '-desc') Product Descripion
+                    a(href="#") Buy Me
+            p= 'This <span>Tag</span> Not Will Be Appear!'
+            .articles
+                article #{desc.toUpperCase()}
+                article #{desc.length}
+                article #{desc.toLowerCase()}
+            .code 
+                p #{h1}
+                    <br> #{h2}
+            .paragraphs
+                p This is a !{paragraph}
+                p This is a #{paragraph} 
+                p This Is Quote \#{interpolation}
+                p This Is Quote #{'#{interpolation}'}
+            block switchCase
+                .desc
+                    p This is #[b bold text] here!
+                    .products-box
+                        +product('Product One')
+                        +product('Product Two')
+                        +product('Product Three')
+            block productTemplate
+                div.fromIndex
+                    p This Text From Index Template
+            include includes/scripts
